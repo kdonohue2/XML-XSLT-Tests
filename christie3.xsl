@@ -11,11 +11,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <th>Title</th>
       <th>Author</th>
     </tr>
+    <xsl:for-each select="catalogue/book">
     <tr>
-      <td><xsl:value-of select="collection/book/title"/></td>
       <td><xsl:value-of select="catalogue/book/title"/></td>
       <td><xsl:value-of select="catalogue/book/author"/></td>
     </tr>
+    </xsl:for-each>
   </table>
   </body>
   </html>
