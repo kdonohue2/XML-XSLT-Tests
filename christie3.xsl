@@ -1,5 +1,4 @@
 //Skeleton from Source
-
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -14,8 +13,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     </tr>
     <xsl:for-each select="catalogue/book">
     <tr>
-      <td><xsl:value-of select="catalogue/book/title"/></td>
-      <td><xsl:value-of select="catalogue/book/author"/></td>
+      <td><xsl:value-of select="title"/></td>
+      <xsl:choose>
+      <xsl:when test="year > 1941">
+          <td class="post">After: <xsl:value-of select="author"/></td>
+      </xsl:when>
+      <xsl:otherwise>
+          <td class="pre">Before: <xsl:value-of select="author"/></td>
+      </xsl:otherwise>
+      </xsl:choose>
     </tr>
     </xsl:for-each>
   </table>
